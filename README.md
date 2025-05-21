@@ -61,7 +61,7 @@ It helps to understand the total number of patients (Female =122, Male = 128)
 
 •	Age of the patient according to the date of birth and appointment date
 
-SELECT CONCAT(FirstName,' ', LastName) fullName, 
+SELECT PatientID, 
 
 AppointmentDateTime,
 
@@ -79,7 +79,7 @@ ORDER BY  Age;
 
 It helps us to know the age of each patient by subtracting each patient's date of birth from the appointment date, and it ranges from 30 to 70 years
 
-2. To analyze appointment trends.
+2. To analyse appointment trends.
    
 •	Identify peak appointment days in each month of the year
 
@@ -154,7 +154,7 @@ Each doctor attended to only one patient, which suggests that there is no worklo
 
   SELECT CONCAT(do.FirstName,' ',do.LastName) Doctor_Full_Name,
   
-  CONCAT(pa.FirstName, ' ', pa.LastName) Patient_Full_Name,
+ PatientID,
   
  Specialisation,
  
@@ -219,8 +219,8 @@ Different doctors have their preferred medications, and a medication can be used
 ### RECOMMENDATION 
 
 - Both 2022 and 2023, we have peak patient appointments in May, June, July, September and October; therefore, for the subsequent year, the hospital should prepare for these months by making the necessary things like medications available 
-- It was discovered that more than one specialist in a particular specialisation, for example Allergist/immunologist, we have 5 specialists. I will recommend laying off some doctors to save costs, and the hospital can retain the best specialists
-- The hospital should stock up on medications that are prescribed the most by doctors in order to save costs, because some medications can expire if they are not prescribed by doctors.
+- It was discovered that more than one specialist in a particular specialisation, for example, an Allergist/immunologist, we have 5 specialists. I will recommend laying off some doctors to save costs, and the hospital can retain the best specialists
+The hospital should stock up on medications that are prescribed the most by doctors to save costs, as some medications can expire if they are not prescribed by doctors.
 - I will recommend that doctors should do more research about medications that are least prescribed, you never can tell, they may work more than the most prescribed medications
 
  ### LIMITATIONS
@@ -229,7 +229,7 @@ Different doctors have their preferred medications, and a medication can be used
 - The bill's table wasn’t available to determine the total amount each patient spent.
   
 ### CONCLUSION 
-- Hospital management should provide complete data of their hospitals in order for data professionals to make the right analysis and recommendations that will help the hospital to cut costs and to make good decisions
+- Hospital management should provide complete data of their hospitals for data professionals to make the right analysis and recommendations that will help the hospital to cut costs and to make good decisions
 
 
 
