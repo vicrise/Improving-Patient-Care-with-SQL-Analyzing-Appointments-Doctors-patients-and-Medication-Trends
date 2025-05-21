@@ -6,7 +6,7 @@ FROM [Medical.Patients]
 GROUP BY Gender;
 
 -- b. age of the patient according to the date of birth and appointment date
-SELECT CONCAT(FirstName,' ' , LastName) fullName, 
+SELECT PatientID, 
 AppointmentDateTime,
 DateOfBirth ,
 DATEDIFF(YEAR,DateOfBirth,AppointmentDateTime) Age
@@ -42,7 +42,7 @@ ORDER BY  Age;
 
  --3.	Assess doctor performance in terms of patient load.
 
- --a.doctor's details and the number of patient seen
+ --a. doctor's details and the number of patients seen
  SELECT 
  CONCAT(FirstName,' ',LastName) Doctor_Full_Name,
  Specialisation, COUNT(AppointmentID) Total_Patient_Seen
@@ -54,7 +54,7 @@ ORDER BY  Age;
 
  -- the purpose why each patient visit a particular doctor with the age and gender 
   SELECT CONCAT(do.FirstName,' ',do.LastName) Doctor_Full_Name,
-  CONCAT(pa.FirstName, ' ', pa.LastName) Patient_Full_Name,
+ PatientID,
  Specialisation,Purpose,  Gender
  FROM [Medical.Doctors] do
  JOIN [Medical.Appointments]ap
@@ -64,9 +64,9 @@ ORDER BY  Age;
  ORDER BY Specialisation;
 
 
---4. medication prescription trends
+--4. Medication prescription trends
 
---a. most prescribed medication
+--a. The most prescribed medication
 SELECT MedicationName, COUNT(*) Total_Medications 
 FROM [Medical.Medications] 
 GROUP BY MedicationName
